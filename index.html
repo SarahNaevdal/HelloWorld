@@ -144,7 +144,7 @@ var page41 = "Zuma swims around the back of the clinic to call for Cali with a b
 var page42 = "Skye flies up to the roof in her helicopter and gently talks to Cali. Marshall climbs up with the ladder from his fire truck. Together, they make Cali feel safe. She jumps right into Marshall's paws! Everyone cheers! Katie thanks Carlos and says: 'You're a great leader - just like Ryder!'<br><br><em>Happy Ending: Kitten rescued, team success, Carlos earns a gold star from the pups.</em> ⭐";
 var page43 = "Carlos forgot to check the weather. It started ❄️ snowing by the mountain road! Everest slips on the ice, and Rubble doesn't have enough tools to fix the bridge. They can't reach the bus in time - but Chase and Rocky rush in to help! Carlos says: 'We always have to check the weather. Next time, we'll plan better!'<img src='images/ice.png' alt='Ice' class='page-image'><br><br><em>Cold but Kind Ending: Everyone is safe, and Carlos learns a big lesson in leadership.</em>";
 var page44 = "Chase stops traffic using his flashing lights and gives clear commands. Rocky builds a strong ramp from recycled parts. The kids climb down safely from the bus! 'PAWsome teamwork!' says Chase.<img src='images/chocolate.png' alt='Chocolate' class='page-image'><br><br><em>Hero Ending: Carlos gets a thank-you from the Mayor, and all the kids give the pups treats!</em> 🍬";
-var page45 = "Just as the drone finds Ryder, the battery runs out. Carlos panics — but then Rubble appears, back from the hike early! Together, they follow the last known location and reach Ryder in time.<br><img src='images/battery.png' alt='Battery' class='page-image'><br><br><em>Learning Ending: Tech helps, but backup plans (and teamwork) save the day.</em>";
+var page45 = "Just as the drone finds Ryder, the battery runs out. Carlos panics - but then Rubble appears, back from the hike early! Together, they follow the last known location and reach Ryder in time.<br><img src='images/battery.png' alt='Battery' class='page-image'><br><br><em>Learning Ending: Tech helps, but backup plans (and teamwork) save the day.</em>";
 var page46 = "Carlos uses the drone to send their 📍 location to Skye and Everest. Skye swoops in and lifts Ryder out safely. He's taken to Katie's clinic and feels better by the afternoon.<img src='images/medical.png' alt='Medical' class='page-image'><br><br><em>Hero Ending: Carlos saves the day using tech and teamwork!</em>";
 var page47 = "The Pup-Mobile gets stuck in a muddy path. Carlos can't go further. But Chase hears the Pup-Pad alert and finds Carlos! They work together to finish the search.<br><img src='images/alert.png' alt='Alert' class='page-image'><br><br><em>Rescue Assist Ending: Carlos learns that even leaders sometimes need help.</em>";
 var page48 = "Carlos uses a 🗺️ map and the tire tracks to track down the team. Ryder is resting under a tree. Carlos gives him water and calls Katie. Soon, the pups and Ryder are back home, safe and sound.<br><img src='images/river.jpg' alt='River' class='page-image'><br><em>Classic Rescue Ending: Carlos becomes a true field leader.</em>";
@@ -255,6 +255,8 @@ const pageLabels = {
         currentLine = line1;
         //Don't show a page number on this page.
         pageNumberDisplay.innerText = "";
+        //Show when user pressed 'Enter'.
+        console.log("Enter")
         //Show the input in the console. 
         console.log("Username: " + playerName);
          //Show the chosen page number in the console.
@@ -263,6 +265,7 @@ const pageLabels = {
 
 //Add a function for when the user starts the book.
     function startAdventure() {
+      console.log("Start the adventure");
       //Hide the 'Hello message'. 
       helloName.innerText = "";
       //Make the 'Start' button invisible. 
@@ -280,6 +283,8 @@ const pageLabels = {
       
 //Add a function that lets the user navigate between the pages.
     function getPage(choice) {
+        //
+        console.log("User pushed: " + choice + "-" + choice === "left" ? left.innerText : right.innerText);
         //Save the users choise.
         choices.push(choice);
         
@@ -349,6 +354,8 @@ const pageLabels = {
 
         index = 3; //Start a new story from the beginning.
         showPage();
+        //Show the entire path.
+        console.log("Final choice path: " + choices.join(" → "));
 
         //When on the last page: hide the navigation buttons and show the 'restart' button.
           left.style.display = "none";
@@ -389,7 +396,8 @@ const pageLabels = {
 
         //Show the text-box again.
         document.getElementById("nameForm").style.display = "block";
-
+        //Show when the user pushed the 'Restart' button.
+        console.log("Restart the adventure")
         //Show the current page number in the console.
         console.log("Welcome page")
     }
