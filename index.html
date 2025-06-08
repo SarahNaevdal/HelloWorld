@@ -1,6 +1,7 @@
 <!--This is an interactive book where the user can choose how the story will continue and end-->
 
 <head>
+<audio id="flipSound" src="page-flip.mp3" preload="auto"></audio>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
 
 <style>
@@ -424,6 +425,12 @@ const pageLabels = {
 
 //Make a function to update the screen.
 function showPage() {
+    const flipSound = document.getElementById("flipSound");
+    if (flipSound) {
+    flipSound.currentTime = 0; // Starta från början
+    flipSound.play().catch(e => console.warn("Sound couldn't play:", e));
+    }
+
     //Output the current page.
     let currentText = currentLine[index];
     //Get label. 
